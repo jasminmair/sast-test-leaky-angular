@@ -26,7 +26,7 @@ jobs:
          # Include these two options
           format: sarif
           output: results.sarif
-          api-key: ${{ secrets.BEARER_TOKEN }}
+          api-key: footesting
         # Add a new step to upload the SARIF file
       - name: Upload SARIF file
         if: always()
