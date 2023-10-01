@@ -28,7 +28,7 @@ jobs:
          # Include these two options
           format: sarif
           output: results.sarif
-          api-key: "$env.BEARER_LOCAL"
+          api-key: "$env:BEARER_LOCAL"
         # Add a new step to upload the SARIF file
       - name: Upload SARIF file
         if: always()
