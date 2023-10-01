@@ -12,7 +12,7 @@ on:
 permissions:
   contents: read
   # Add the security-events permission
-  #security-events: write
+  security-events: write
 
 jobs:
   rule_check:
@@ -25,11 +25,11 @@ jobs:
         with:
           api-key: ${{ secrets.BEARER_TOKEN }}
         # Include these two options
-          #format: sarif
-          #output: results.sarif
+          format: sarif
+          output: results.sarif
     # Add a new step to upload the SARIF file
-      #- name: Upload SARIF file
-        #if always()
-        #uses: github/codeql-action/upload-sarif@v2
-        #with:
-          #sarif_file: results.sarif
+      - name: Upload SARIF file
+        if: always()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: results.sarif
