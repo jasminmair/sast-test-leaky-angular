@@ -26,8 +26,7 @@ jobs:
          # Include these two options
           format: sarif
           output: results.sarif
-          api-key: ${{ secrets.BEARER_TOKEN }}
-        secrets: inherit
+          api-key: 3af73ac74f8a1762ec41e37e05e30608
         # Add a new step to upload the SARIF file
       - name: Upload SARIF file
         if: always()
