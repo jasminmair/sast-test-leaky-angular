@@ -22,13 +22,12 @@ jobs:
       - name: Run Report
         id: report
         uses: bearer/bearer-action@v2
-        env:
-          BEARER_LOCAL: ${{ secrets.BEARER_TOKEN }}
         with:
          # Include these two options
           format: sarif
           output: results.sarif
-          api-key: "$env:BEARER_LOCAL"
+          api-key: ${{ secrets.BEARER_TOKEN }}
+        secrets: inherit
         # Add a new step to upload the SARIF file
       - name: Upload SARIF file
         if: always()
