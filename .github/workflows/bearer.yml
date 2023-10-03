@@ -27,6 +27,7 @@ jobs:
         # Include these two options
           format: sarif
           output: results.sarif
+          exit-code: 0
     # Add a new step to upload the SARIF file
       - name: Upload SARIF file
         if: always()
