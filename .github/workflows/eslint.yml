@@ -38,9 +38,9 @@ jobs:
       - name: Run ESLint
         run: npx eslint .
           --config .eslintrc.json
-          --format @microsoft/eslint-formatter-sarif
-          --output-file results.sarif
-        continue-on-error: true
+          #--format @microsoft/eslint-formatter-sarif
+          #--output-file results.sarif
+        #continue-on-error: true
 
       #- name: Upload analysis results to GitHub
        # uses: github/codeql-action/upload-sarif@v2
