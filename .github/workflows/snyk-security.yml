@@ -78,8 +78,19 @@
 #         with:
 #           sarif_file: snyk-code.sarif
 
-name: Example workflow for Node using Snyk
-on: push
+name: Snyk
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "master" ]
+    
+permissions:
+  contents: read
+  security-events: write
+  
 jobs:
   security:
     runs-on: ubuntu-latest
