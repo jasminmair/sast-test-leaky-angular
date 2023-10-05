@@ -90,7 +90,7 @@ on:
 permissions:
   contents: read
   security-events: write
-  
+
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -103,6 +103,8 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif
+      - name: auth token
+        run: echo ${SNYK_TOKEN:0:4}
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
