@@ -88,13 +88,8 @@ on:
     branches: [ "master" ]
     
 permissions:
-  actions: read
   contents: read
-  statuses: read
   security-events: write
-
-env:
-  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
 jobs:
   security:
@@ -102,4 +97,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         uses: snyk/actions/node@master
