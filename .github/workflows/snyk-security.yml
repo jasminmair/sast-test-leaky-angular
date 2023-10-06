@@ -88,7 +88,9 @@ on:
     branches: [ "master" ]
     
 permissions:
+  actions: read
   contents: read
+  statuses: read
   security-events: write
 
 env:
